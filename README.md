@@ -2,14 +2,14 @@
 
 美国东西方出版社官网（East-West Press），基于 [Astro](https://astro.build) 的中英双语静态站点，通过 GitHub Actions 自动部署到 GitHub Pages。
 
-- 线上地址：https://wangyubo.github.io/east-west-press/ （中文版 `/zh/`）
+- 线上地址：https://eastwest.press/ （中文版 https://eastwest.press/zh/）
 - 参考站点：https://kfbook.org/
 
 ## 本地开发
 
 ```bash
 npm install
-npm run dev       # 开发服务器 http://localhost:4321/east-west-press/
+npm run dev       # 开发服务器 http://localhost:4321/
 npm run build     # 构建到 dist/
 npm run preview   # 预览构建结果
 ```
@@ -46,6 +46,8 @@ npm run preview   # 预览构建结果
 ## 部署
 
 push 到 `main` 分支即自动部署（`.github/workflows/deploy.yml`）。
-仓库 Settings → Pages 的 Source 需设为 **GitHub Actions**（仅首次需要）。
+托管在 GitHub Pages，自定义域名 `eastwest.press` 在仓库 Settings → Pages 中配置。
 
-以后如绑定自有域名：在 `public/` 下加 `CNAME` 文件，并删除 `astro.config.mjs` 中的 `base`、把 `site` 改为自有域名。
+DNS（域名注册商处）需要的记录：
+- `eastwest.press` 四条 A 记录 → 185.199.108.153 / 185.199.109.153 / 185.199.110.153 / 185.199.111.153
+- `www.eastwest.press` CNAME → `wangyubo.github.io`
