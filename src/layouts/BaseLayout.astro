@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+import { t, withBase, altLangPath, type Lang } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  lang: Lang;
+  /** 当前页去掉语言前缀后的路径（如 'books/'、''），用于生成语言切换链接 */
+  path: string;
+  /** 当前导航高亮项 */
+  active?: 'home' | 'about' | 'books' | 'contact';
+}
+
+const { title, lang, path, active } = Astro.props;
+const prefix = lang === 'zh' ? 'zh/' : '';
+
+const nav = [
+  { key: 'home', label: t(lang, 'nav.home'), href: withBase(prefix) },
+  { key: 'books', label: t(lang, 'nav.books'), href: withBase(`${prefix}books/`) },
+  { key: 'about', label: t(lang, 'nav.about'), href: withBase(`${prefix}about/`) },
+  { key: 'contact', label: t(lang, 'nav.contact'), href: withBase(`${prefix}contact/`) },
+] as const;
+---
+
+<html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+    <meta name="description" content={t(lang, 'siteTagline')} />
+    <title>{title} | {t(lang, 'siteName')}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href={withBase(prefix)}>
+          <div class="brand-name">{t(lang, 'siteName')}</div>
+          <div class="brand-tagline">{t(lang, 'siteTagline')}</div>
+        </a>
+        <nav class="site-nav">
+          {
+            nav.map((item) => (
+              <a href={item.href} aria-current={active === item.key ? 'page' : undefined}>
+                {item.label}
+              </a>
+            ))
+          }
+          <a class="lang-switch" href={withBase(altLangPath(lang, path))}>
+            {t(lang, 'nav.langSwitch')}
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          © {new Date().getFullYear()} {t(lang, 'siteName')} · {t(lang, 'footer.rights')}
+          · <a href="mailto:info@kfbook.org">info@kfbook.org</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

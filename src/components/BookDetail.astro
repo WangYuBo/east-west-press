@@ -1,0 +1,52 @@
+---
+import { render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t, withBase, type Lang } from '../i18n/ui';
+
+interface Props {
+  book: CollectionEntry<'books'>;
+  lang: Lang;
+}
+
+const { book, lang } = Astro.props;
+const slug = book.id.split('/').pop();
+const prefix = lang === 'zh' ? 'zh/' : '';
+const { Content } = await render(book);
+---
+
+<BaseLayout title={book.data.title} lang={lang} path={`books/${slug}/`} active="books">
+  <div class="container section">
+    <a class="back-link" href={withBase(`${prefix}books/`)}>← {t(lang, 'book.back')}</a>
+    <article class="book-detail">
+      <div class="cover">
+        <img src={withBase(book.data.cover)} alt={book.data.title} />
+      </div>
+      <div>
+        <h1>{book.data.title}</h1>
+        {book.data.subtitle && <p class="subtitle">{book.data.subtitle}</p>}
+        <ul class="book-meta">
+          <li><strong>{t(lang, 'book.author')}:</strong> {book.data.author}</li>
+          {book.data.isbn && <li><strong>{t(lang, 'book.isbn')}:</strong> {book.data.isbn}</li>}
+          {
+            book.data.publishDate && (
+              <li>
+                <strong>{t(lang, 'book.published')}:</strong> {book.data.publishDate}
+              </li>
+            )
+          }
+        </ul>
+        <div class="book-body">
+          <Content />
+        </div>
+        {
+          book.data.buyLink && (
+            <a class="btn" href={book.data.buyLink} target="_blank" rel="noopener">
+              {t(lang, 'book.buy')}
+            </a>
+          )
+        }
+      </div>
+    </article>
+  </div>
+</BaseLayout>

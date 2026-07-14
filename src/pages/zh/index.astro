@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookCard from '../../components/BookCard.astro';
+import { t, withBase } from '../../i18n/ui';
+
+const featured = (
+  await getCollection('books', (b) => b.data.lang === 'zh' && b.data.featured)
+).slice(0, 4);
+---
+
+<BaseLayout title="首页" lang="zh" path="" active="home">
+  <section class="hero">
+    <div class="container">
+      <h1>美国东西方出版社</h1>
+      <p>{t('zh', 'siteTagline')}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>{t('zh', 'home.featured')}</h2>
+      <div class="book-grid">
+        {featured.map((book) => <BookCard book={book} lang="zh" />)}
+      </div>
+      <p style="margin-top: 2rem;">
+        <a class="btn btn-outline" href={withBase('zh/books/')}>{t('zh', 'home.viewAll')}</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container prose">
+      <h2>{t('zh', 'home.aboutTitle')}</h2>
+      <p>
+        美国东西方出版社是一家立足美国的独立学术出版机构，致力于促进东西方文明之间的对话与交流。
+        我们出版人文学科、社会科学、亚洲研究与全球研究领域的学术著作。
+      </p>
+      <p>
+        <a href={withBase('zh/about/')}>{t('zh', 'home.aboutCta')} →</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

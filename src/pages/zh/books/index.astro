@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BookCard from '../../../components/BookCard.astro';
+import { t } from '../../../i18n/ui';
+
+const books = (await getCollection('books', (b) => b.data.lang === 'zh')).sort((a, b) =>
+  (b.data.publishDate ?? '').localeCompare(a.data.publishDate ?? '')
+);
+---
+
+<BaseLayout title="书目" lang="zh" path="books/" active="books">
+  <div class="container section">
+    <h1>{t('zh', 'books.title')}</h1>
+    <p class="lede">{t('zh', 'books.intro')}</p>
+    <div class="book-grid">
+      {books.map((book) => <BookCard book={book} lang="zh" />)}
+    </div>
+  </div>
+</BaseLayout>

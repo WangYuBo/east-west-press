@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="600" height="900" fill="#1e3a5f"/>
+  <rect x="40" y="40" width="520" height="820" fill="none" stroke="#c9b37e" stroke-width="3"/>
+  <line x1="120" y1="300" x2="480" y2="300" stroke="#c9b37e" stroke-width="1.5"/>
+  <text x="300" y="380" fill="#f5f0e6" font-size="52" text-anchor="middle">Dialogues</text>
+  <text x="300" y="450" fill="#f5f0e6" font-size="40" text-anchor="middle">Between</text>
+  <text x="300" y="520" fill="#f5f0e6" font-size="52" text-anchor="middle">East &amp; West</text>
+  <line x1="120" y1="580" x2="480" y2="580" stroke="#c9b37e" stroke-width="1.5"/>
+  <text x="300" y="640" fill="#c9b37e" font-size="26" font-style="italic" text-anchor="middle">Civilizations in Conversation</text>
+  <text x="300" y="800" fill="#c9b37e" font-size="22" letter-spacing="4" text-anchor="middle">EAST-WEST PRESS</text>
+</svg>

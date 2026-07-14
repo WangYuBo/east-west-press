@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { withBase, type Lang } from '../i18n/ui';
+
+interface Props {
+  book: CollectionEntry<'books'>;
+  lang: Lang;
+}
+
+const { book, lang } = Astro.props;
+// 文件 id 形如 en/dialogues-east-west，去掉语言目录得到 slug
+const slug = book.id.split('/').pop();
+const prefix = lang === 'zh' ? 'zh/' : '';
+---
+
+<a class="book-card" href={withBase(`${prefix}books/${slug}/`)}>
+  <div class="cover">
+    <img src={withBase(book.data.cover)} alt={book.data.title} loading="lazy" />
+  </div>
+  <h3>{book.data.title}</h3>
+  <p class="book-author">{book.data.author}</p>
+</a>
