@@ -2,7 +2,8 @@ export type Lang = 'en' | 'zh';
 
 export const ui = {
   en: {
-    siteName: 'East-West Press',
+    siteName: 'East-West Publishing Group',
+    siteLegalName: 'East-West Publishing Group Inc.',
     siteTagline: 'Promoting dialogues and exchanges between East and West',
     'nav.home': 'Home',
     'nav.about': 'About Us',
@@ -18,6 +19,7 @@ export const ui = {
       'Scholarly works in the humanities, social sciences, Asian studies, and global studies.',
     'book.author': 'Author',
     'book.isbn': 'ISBN',
+    'book.format': 'Format',
     'book.published': 'Published',
     'book.buy': 'Buy This Book',
     'book.back': 'Back to Books',
@@ -26,6 +28,7 @@ export const ui = {
   },
   zh: {
     siteName: '美国东西方出版社',
+    siteLegalName: 'East-West Publishing Group Inc.',
     siteTagline: '促进东西方之间的对话与交流',
     'nav.home': '首页',
     'nav.about': '关于我们',
@@ -40,6 +43,7 @@ export const ui = {
     'books.intro': '专注于人文学科、社会科学、亚洲研究与全球研究领域的学术出版。',
     'book.author': '作者',
     'book.isbn': 'ISBN',
+    'book.format': '装帧',
     'book.published': '出版时间',
     'book.buy': '购买本书',
     'book.back': '返回书目',

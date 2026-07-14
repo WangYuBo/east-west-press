@@ -8,8 +8,9 @@ const books = defineCollection({
   schema: z.object({
     title: z.string(),
     subtitle: z.string().optional(),
-    author: z.string(),
+    author: z.string().optional(),
     isbn: z.string().optional(),
+    format: z.string().optional(), // Paperback / Hardback
     cover: z.string(), // public/ 下的相对路径，如 covers/xxx.svg
     buyLink: z.string().url().optional(),
     lang: z.enum(['en', 'zh']),

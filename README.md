@@ -1,6 +1,6 @@
 # east-west-press
 
-美国东西方出版社官网（East-West Press），基于 [Astro](https://astro.build) 的中英双语静态站点，通过 GitHub Actions 自动部署到 GitHub Pages。
+美国东西方出版社（East-West Publishing Group Inc.）官网，基于 [Astro](https://astro.build) 的中英双语静态站点，通过 GitHub Actions 自动部署到 GitHub Pages。
 
 - 线上地址：https://eastwest.press/ （中文版 https://eastwest.press/zh/）
 - 参考站点：https://kfbook.org/

@@ -26,8 +26,21 @@ const { Content } = await render(book);
         <h1>{book.data.title}</h1>
         {book.data.subtitle && <p class="subtitle">{book.data.subtitle}</p>}
         <ul class="book-meta">
-          <li><strong>{t(lang, 'book.author')}:</strong> {book.data.author}</li>
+          {
+            book.data.author && (
+              <li>
+                <strong>{t(lang, 'book.author')}:</strong> {book.data.author}
+              </li>
+            )
+          }
           {book.data.isbn && <li><strong>{t(lang, 'book.isbn')}:</strong> {book.data.isbn}</li>}
+          {
+            book.data.format && (
+              <li>
+                <strong>{t(lang, 'book.format')}:</strong> {book.data.format}
+              </li>
+            )
+          }
           {
             book.data.publishDate && (
               <li>
