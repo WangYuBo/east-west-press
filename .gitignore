@@ -17,3 +17,6 @@ npm-debug.log*
 # macOS
 .DS_Store
 images/
+
+# conversation history
+chats/
