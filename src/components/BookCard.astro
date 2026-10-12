@@ -19,4 +19,5 @@ const prefix = lang === 'zh' ? 'zh/' : '';
   </div>
   <h3>{book.data.title}</h3>
   <p class="book-author">{book.data.author}</p>
+  {book.data.publisher && <p class="book-publisher">{book.data.publisher}</p>}
 </a>

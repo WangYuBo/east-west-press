@@ -9,6 +9,7 @@ const books = defineCollection({
     title: z.string(),
     subtitle: z.string().optional(),
     author: z.string().optional(),
+    publisher: z.string().optional(), // 出版方，缺省视为本社
     isbn: z.string().optional(),
     format: z.string().optional(), // Paperback / Hardback
     cover: z.string(), // public/ 下的相对路径，如 covers/xxx.svg

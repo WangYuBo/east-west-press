@@ -195,6 +195,12 @@ img {
   color: var(--color-muted);
 }
 
+.book-card .book-publisher {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  opacity: 0.8;
+}
+
 /* ---------- book detail ---------- */
 .book-detail {
   display: grid;

@@ -18,6 +18,7 @@ export const ui = {
     'books.intro':
       'Scholarly works in the humanities, social sciences, Asian studies, and global studies.',
     'book.author': 'Author',
+    'book.publisher': 'Publisher',
     'book.isbn': 'ISBN',
     'book.format': 'Format',
     'book.published': 'Published',
@@ -42,6 +43,7 @@ export const ui = {
     'books.title': '出版书目',
     'books.intro': '专注于人文学科、社会科学、亚洲研究与全球研究领域的学术出版。',
     'book.author': '作者',
+    'book.publisher': '出版方',
     'book.isbn': 'ISBN',
     'book.format': '装帧',
     'book.published': '出版时间',

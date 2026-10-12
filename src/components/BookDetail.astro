@@ -33,6 +33,13 @@ const { Content } = await render(book);
               </li>
             )
           }
+          {
+            book.data.publisher && (
+              <li>
+                <strong>{t(lang, 'book.publisher')}:</strong> {book.data.publisher}
+              </li>
+            )
+          }
           {book.data.isbn && <li><strong>{t(lang, 'book.isbn')}:</strong> {book.data.isbn}</li>}
           {
             book.data.format && (
