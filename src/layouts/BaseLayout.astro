@@ -9,9 +9,11 @@ interface Props {
   path: string;
   /** 当前导航高亮项 */
   active?: 'home' | 'about' | 'books' | 'contact';
+  /** 另一语言下没有对应页面时置为 true，隐藏语言切换，避免死链 */
+  hideLangSwitch?: boolean;
 }
 
-const { title, lang, path, active } = Astro.props;
+const { title, lang, path, active, hideLangSwitch = false } = Astro.props;
 const prefix = lang === 'zh' ? 'zh/' : '';
 
 const nav = [
@@ -45,9 +47,13 @@ const nav = [
               </a>
             ))
           }
-          <a class="lang-switch" href={withBase(altLangPath(lang, path))}>
-            {t(lang, 'nav.langSwitch')}
-          </a>
+          {
+            !hideLangSwitch && (
+              <a class="lang-switch" href={withBase(altLangPath(lang, path))}>
+                {t(lang, 'nav.langSwitch')}
+              </a>
+            )
+          }
         </nav>
       </div>
     </header>
